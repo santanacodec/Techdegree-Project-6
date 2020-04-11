@@ -18,6 +18,10 @@ startGame.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
 
-function getRandomPhraseAsArray(arr) {
-
+// Function to get a random phrase from phrases array and splits it into a character array
+function getRandomPhraseAsArray(arr) {   
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
 }
+getRandomPhraseAsArray(phrases);
