@@ -20,8 +20,11 @@ startGame.addEventListener('click', () => {
 
 // Function to get a random phrase from phrases array and splits it into a character array
 function getRandomPhraseAsArray(arr) {   
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {       
         console.log(arr[i]);
+        for (let j = 0; j < arr[i].length; j++) {
+            console.log(arr[i][j]);
+        }
     }
 }
 getRandomPhraseAsArray(phrases);
