@@ -22,11 +22,10 @@ startGame.addEventListener('click', () => {
 function getRandomPhraseAsArray(arr) {
     let randomArray = arr[Math.floor(Math.random() * arr.length)];
     console.log(randomArray);
-    for (let i = 0; i < randomArray.length; i++) {              
-        console.log(randomArray[i]);
-/*        for (let j = 0; j < arr[i].length; j++) {
-            console.log(arr[i][j]);   
-        }*/
+    for (let i = 0; i < randomArray.length; i++) {  
+        let arrayChar;       
+        arrayChar = randomArray[i];
+        console.log(arrayChar);
     }
 }
 getRandomPhraseAsArray(phrases);
