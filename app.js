@@ -3,6 +3,7 @@ const phraseToGuess = document.getElementById('phrase');
 const phraseUl = phraseToGuess.querySelector('ul');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
+const tries = document.querySelector("li.tries");
 let missed = 0;
 var phrases = [
     "beat around the bush",
@@ -49,18 +50,19 @@ addPhraseToDisplay(phraseArray);
 
 function checkLetter(button) {
     const getLetter = document.getElementsByClassName('letter');
+    var letterFound;
     for (let i = 0; i < getLetter.length; i++) {
         // console.log("hello");
         if (button.textContent === getLetter[i].textContent) {
             console.log('yes');
             getLetter[i].className += ' show';
             console.log(getLetter[i].textContent);
-            return getLetter[i].textContent;
-            
-        } 
+            letterFound = getLetter[i].textContent;
+        } else {
+            letterFound = null;
+        }       
     }
-    console.log("null");
-    return null;
+    return letterFound;
 }
 
 keyboard.addEventListener('click', (e) => {
