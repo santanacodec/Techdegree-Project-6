@@ -3,6 +3,7 @@ const phraseToGuess = document.getElementById('phrase');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
 
+
 var phrases = [
     "Beat around the bush",
     "When pigs fly",
@@ -21,10 +22,17 @@ startGame.addEventListener('click', () => {
 // Function to get a random phrase from phrases array and splits it into a character array
 function getRandomPhraseAsArray(arr) {
     let randomArray = arr[Math.floor(Math.random() * arr.length)];
-    console.log(randomArray);
+   // console.log(randomArray);
     let arrayChar = randomArray.split("");
-    console.log(arrayChar);
+   // console.log(arrayChar);
 
     return arrayChar;
 }
-getRandomPhraseAsArray(phrases);
+
+const phraseArray = getRandomPhraseAsArray(phrases);
+
+function addPhraseToDisplay(arr) {
+    
+}
+addPhraseToDisplay(phraseArray);
+
