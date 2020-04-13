@@ -3,7 +3,7 @@ const phraseToGuess = document.getElementById('phrase');
 const phraseUl = phraseToGuess.querySelector('ul');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
-const tries = document.querySelector("li.tries");
+let tries = document.querySelector("li.tries");
 let missed = 0;
 var phrases = [
     "beat around the bush",
@@ -21,9 +21,7 @@ startGame.addEventListener('click', () => {
 // Function to get a random phrase from phrases array and splits it into a character array
 function getRandomPhraseAsArray(arr) {
     let randomArray = arr[Math.floor(Math.random() * arr.length)];
-   // console.log(randomArray);
     let arrayChar = randomArray.split("");
-   // console.log(arrayChar);
 
     return arrayChar;
 }
@@ -32,12 +30,9 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 
 // Function that adds a phrase to display as li elements to #phrase ul.
 function addPhraseToDisplay(arr) {
-    console.log(phraseArray);   
     for (let i = 0; i < arr.length; i++) {
         const list = document.createElement('li');
-        // console.log(arr[i]);
         for (let j = 0; j < arr[i].length; j++) {           
-            // console.log(arr[i][j] + " hi");
             list.appendChild(document.createTextNode(arr[i][j]));
             phraseUl.appendChild(list);
             if (arr[i][j] !== ' ') {
@@ -52,27 +47,26 @@ function checkLetter(button) {
     const getLetter = document.getElementsByClassName('letter');
     var letterFound;
     for (let i = 0; i < getLetter.length; i++) {
-        // console.log("hello");
         if (button.textContent === getLetter[i].textContent) {
-            console.log('yes');
             getLetter[i].className += ' show';
-            console.log(getLetter[i].textContent);
-            letterFound = getLetter[i].textContent;
+            letterFound = getLetter[i].textContent;           
         } else {
-            letterFound = null;
-        }       
+            letterFound = null;            
+        }          
     }
     return letterFound;
 }
 
 keyboard.addEventListener('click', (e) => {
-    if (e.target.tagName == 'BUTTON') {
-        let key = e.target;
-        console.log(key);
+    let key = e.target;
+    if (e.target.tagName == 'BUTTON') {    
         key.className = 'chosen';
         if (e.target.className == 'chosen') {
             key.disabled = true;
         }
-        checkLetter(key);
+        var letterFound = checkLetter(key);
+        if (letterFound === null) {
+            tries.style.display = 'none';
+        }
     }
 });
