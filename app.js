@@ -57,11 +57,10 @@ function checkLetter(button) {
             console.log(getLetter[i].textContent);
             return getLetter[i].textContent;
             
-        } else if (button.textContent !== getLetter.length) {
-            console.log('null');
-            return null;
-        }      
+        } 
     }
+    console.log("null");
+    return null;
 }
 
 keyboard.addEventListener('click', (e) => {
