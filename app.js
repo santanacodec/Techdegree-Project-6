@@ -1,18 +1,16 @@
 const keyboard = document.getElementById('qwerty');
-const phraseToGuess = document.querySelector('phrase ul');
+const phraseToGuess = document.getElementById('phrase');
+const phraseUl = phraseToGuess.querySelector('ul');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
-
-
-var phrases = [
-    "Beat around the bush",
-    "When pigs fly",
-    "Speak of the devil",
-    "A piece of cake",
-    "No pain no gain"
-];
-
 let missed = 0;
+var phrases = [
+    "beat around the bush",
+    "when pigs fly",
+    "speak of the devil",
+    "a piece of cake",
+    "no pain no gain"
+];
 
 // Removes the Wheel Of Success overlay upon clicking 'start game'.
 startGame.addEventListener('click', () => {
@@ -31,14 +29,19 @@ function getRandomPhraseAsArray(arr) {
 
 const phraseArray = getRandomPhraseAsArray(phrases);
 
+// Function that adds a phrase to display as li elements to #phrase ul.
 function addPhraseToDisplay(arr) {
-    console.log(phraseArray);
-    const li = document.createElement('li');
-
+    console.log(phraseArray);   
     for (let i = 0; i < arr.length; i++) {
+        const list = document.createElement('li');
         // console.log(arr[i]);
-        for (let j = 0; j < arr[i].length; j++) {
-            console.log(arr[i][j] + " hi");
+        for (let j = 0; j < arr[i].length; j++) {           
+            // console.log(arr[i][j] + " hi");
+            list.appendChild(document.createTextNode(arr[i][j]));
+            phraseUl.appendChild(list);
+            if (arr[i][j] !== ' ') {
+                list.className = 'letter';
+            }
         }
     }
 }
