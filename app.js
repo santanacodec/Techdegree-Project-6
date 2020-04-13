@@ -47,3 +47,13 @@ function addPhraseToDisplay(arr) {
 }
 addPhraseToDisplay(phraseArray);
 
+keyboard.addEventListener('click', (e) => {
+    if (e.target.tagName == 'BUTTON') {
+        let key = e.target;
+        console.log(key);
+        key.className = 'chosen';
+        if (e.target.className == 'chosen') {
+            key.disabled = true;
+        }
+    }
+});
