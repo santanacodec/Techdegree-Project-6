@@ -48,7 +48,20 @@ function addPhraseToDisplay(arr) {
 addPhraseToDisplay(phraseArray);
 
 function checkLetter(button) {
-
+    const getLetter = document.getElementsByClassName('letter');
+    for (let i = 0; i < getLetter.length; i++) {
+        // console.log("hello");
+        if (button.textContent === getLetter[i].textContent) {
+            console.log('yes');
+            getLetter[i].className += ' show';
+            console.log(getLetter[i].textContent);
+            return getLetter[i].textContent;
+            
+        } else if (button.textContent !== getLetter.length) {
+            console.log('null');
+            return null;
+        }      
+    }
 }
 
 keyboard.addEventListener('click', (e) => {
@@ -59,5 +72,6 @@ keyboard.addEventListener('click', (e) => {
         if (e.target.className == 'chosen') {
             key.disabled = true;
         }
+        checkLetter(key);
     }
 });
