@@ -60,5 +60,4 @@ keyboard.addEventListener('click', (e) => {
             key.disabled = true;
         }
     }
-    checkLetter(key);
 });
