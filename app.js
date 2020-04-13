@@ -1,5 +1,5 @@
 const keyboard = document.getElementById('qwerty');
-const phraseToGuess = document.getElementById('phrase');
+const phraseToGuess = document.querySelector('phrase ul');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
 
@@ -32,7 +32,15 @@ function getRandomPhraseAsArray(arr) {
 const phraseArray = getRandomPhraseAsArray(phrases);
 
 function addPhraseToDisplay(arr) {
-    
+    console.log(phraseArray);
+    const li = document.createElement('li');
+
+    for (let i = 0; i < arr.length; i++) {
+        // console.log(arr[i]);
+        for (let j = 0; j < arr[i].length; j++) {
+            console.log(arr[i][j] + " hi");
+        }
+    }
 }
 addPhraseToDisplay(phraseArray);
 
