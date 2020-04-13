@@ -47,6 +47,10 @@ function addPhraseToDisplay(arr) {
 }
 addPhraseToDisplay(phraseArray);
 
+function checkLetter(button) {
+
+}
+
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName == 'BUTTON') {
         let key = e.target;
@@ -56,4 +60,5 @@ keyboard.addEventListener('click', (e) => {
             key.disabled = true;
         }
     }
+    checkLetter(key);
 });
