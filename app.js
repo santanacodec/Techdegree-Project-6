@@ -45,14 +45,11 @@ addPhraseToDisplay(phraseArray);
 
 function checkLetter(button) {
     const getLetter = document.getElementsByClassName('letter');
-    let letter;
+    let letter = null;
     for (let i = 0; i < getLetter.length; i++) {
         if (button.textContent === getLetter[i].textContent) {
             getLetter[i].className += ' show';
             letter = getLetter[i].textContent;
-        }
-        else {
-            letter = null;
         }
     } 
     return letter;
