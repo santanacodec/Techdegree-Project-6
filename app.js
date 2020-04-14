@@ -3,7 +3,7 @@ const phraseToGuess = document.getElementById('phrase');
 const phraseUl = phraseToGuess.querySelector('ul');
 const overlay = document.getElementById('overlay');
 const startGame = document.querySelector('a.btn__reset');
-let tries = document.querySelector("li.tries");
+let tries = document.querySelectorAll("li.tries");
 let missed = 0;
 var phrases = [
     "beat around the bush",
@@ -49,10 +49,10 @@ function checkLetter(button) {
     for (let i = 0; i < getLetter.length; i++) {
         if (button.textContent === getLetter[i].textContent) {
             getLetter[i].className += ' show';
-            letterFound = getLetter[i].textContent;           
+            letterFound = getLetter[i].textContent;
         } else {
-            letterFound = null;            
-        }          
+            letterFound = null;
+        }
     }
     return letterFound;
 }
@@ -66,7 +66,8 @@ keyboard.addEventListener('click', (e) => {
         }
         var letterFound = checkLetter(key);
         if (letterFound === null) {
-            tries.style.display = 'none';
+            tries[missed].innerHTML = "<img src='images/lostHeart.png'>";
+            missed++;
         }
     }
 });
