@@ -45,6 +45,7 @@ function addPhraseToDisplay(arr) {
 }
 addPhraseToDisplay(phraseArray);
 
+// function to check to see if letter in phrase matches letter of button being clicked.
 function checkLetter(button) {
     const getLetter = document.getElementsByClassName('letter');
     let letter = null;
@@ -57,6 +58,8 @@ function checkLetter(button) {
     return letter;
 }
 
+// function to check to see if number of .letter class is equal to number of .show class
+// to determine the outcome of the game.
 function checkWin() {
     var outcome;
     const getLetter = document.getElementsByClassName('letter');
@@ -65,7 +68,6 @@ function checkWin() {
     var showTick = 0;
     for (let i = 0; i < getShow.length; i++) {
         showTick++;       
-        console.log(showTick);
     }
 
     if (letterCount === showTick) {
@@ -84,6 +86,7 @@ function checkWin() {
     return outcome;
 }
 
+// event listener to listen to keyboard button on screen being clicked.
 keyboard.addEventListener('click', (e) => {
     let key = e.target;
     if (e.target.tagName == 'BUTTON') {    
@@ -96,7 +99,6 @@ keyboard.addEventListener('click', (e) => {
         if (letterFound === null) {
             tries[missed].innerHTML = "<img src='images/lostHeart.png'>";
             missed++;    
-            console.log(missed);
         }  
         
     }
