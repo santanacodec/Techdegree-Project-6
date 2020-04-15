@@ -37,6 +37,8 @@ function addPhraseToDisplay(arr) {
             phraseUl.appendChild(list);
             if (arr[i][j] !== ' ') {
                 list.className = 'letter';
+            } else {
+                list.className = 'space';
             }
         }
     }
@@ -56,7 +58,30 @@ function checkLetter(button) {
 }
 
 function checkWin() {
+    var outcome;
+    const getLetter = document.getElementsByClassName('letter');
+    const getShow = document.getElementsByClassName('show');
+    var letterCount = getLetter.length;
+    var showTick = 0;
+    for (let i = 0; i < getShow.length; i++) {
+        showTick++;       
+        console.log(showTick);
+    }
 
+    if (letterCount === showTick) {
+        overlay.className = 'win';
+        document.querySelector('h2.title').innerHTML = "You Win";
+        startGame.style.display = 'none';
+        outcome = overlay.style.display = 'block';
+    }
+    
+    if (missed >= 5) {
+        overlay.className = 'lose';
+        document.querySelector('h2.title').innerHTML = "You Lose";
+        startGame.style.display = 'none';
+        outcome = overlay.style.display = 'block';
+    }    
+    return outcome;
 }
 
 keyboard.addEventListener('click', (e) => {
@@ -67,9 +92,13 @@ keyboard.addEventListener('click', (e) => {
             key.disabled = true;
         }
         var letterFound = checkLetter(key);
+
         if (letterFound === null) {
             tries[missed].innerHTML = "<img src='images/lostHeart.png'>";
-            missed++;
-        }
+            missed++;    
+            console.log(missed);
+        }  
+        
     }
+    checkWin();
 });
