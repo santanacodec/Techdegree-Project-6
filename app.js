@@ -55,6 +55,10 @@ function checkLetter(button) {
     return letter;
 }
 
+function checkWin() {
+
+}
+
 keyboard.addEventListener('click', (e) => {
     let key = e.target;
     if (e.target.tagName == 'BUTTON') {    
